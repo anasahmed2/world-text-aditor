@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text aditor 2023</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heading">
+            <h1>WORLD TEXT EDITOR</h1>
+            <hr class="hr">
+
+            <!-- text top input -->
+            <div class="inputs_feild">
+                <div class="input-container">
+                    <input type="text" id="input" required="">
+                    <label for="input" class="label">Enter Text</label>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <!-- button apply style-->
+            <div class="btn1">
+                <button class="Btn" id="editBtn">Clear Text
+                    <svg class="svg" viewBox="0 0 512 512">
+                        <path
+                            d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <hr />
+
+            <!-- edit box  -->
+            <div class="edit_box">
+                <div class=" icons">
+                    <!-- icon bold  -->
+                    <div class="bold">
+                        <abbr title="Bold">
+                            <button onmouseover="boldOver()"><img src="icons/icons8-bold-50.png" alt=""
+                                    width="20px"></button>
+                        </abbr>
+                        <div class="input_bold" id="boldChart" onmouseleave="boldLeft()">
+                            <input class="style_bold_input" name="bolder" type="radio" id="boldValue"
+                                value="bold"><br>Bold
+                            <hr style="margin: 0;">
+                            <input class="style_bold_input" name="bolder" type="radio" id="boldValue"
+                                value="100"><br>None
+                        </div>
+                    </div>
+
+                    <!-- icon italic-->
+                    <div class="italic">
+                        <abbr title="Italic">
+                            <button onmouseover="italicOver()">
+                                <img src="icons/icons8-italic-30.png" alt="" width="20px">
+                            </button>
+                        </abbr>
+                        <div class="italic_input" id="italicChart" onmouseleave="italicLeft()">
+                            <input type="radio" class="italic_style_dot" name="italic" value="normal"><br>None
+                            <hr style="margin: 0;">
+                            <input type="radio" class="italic_style_dot" name="italic" value="italic"><br>Italic
+                            <hr style="margin: 0;">
+                            <input type="radio" class="italic_style_dot" name="italic" value="oblique"><br> Oblique <br>
+                        </div>
+                    </div>
+
+                    <!-- icon backgrond color  -->
+                    <div class="Background_color" onmouseover="BGColorsOver()">
+                        <b>BG</b><abbr title="Background Color"> <input type="color" id="BackGroundColor">
+                        </abbr>
+                    </div>
+
+                    <!-- icon color  -->
+                    <div class="color" onmouseover="colorsOver()">
+                        <b>T</b><abbr title="Text Color"> <input type="color" id="color">
+                        </abbr>
+                    </div>
+
+                    <!-- icon underline -->
+                    <div class="underline">
+                        <abbr title="Underline">
+                            <button onmouseover="underlineOver()">
+                                <img src="icons/icons8-underline-30.png" alt="" width="25px">
+                            </button>
+                        </abbr>
+                        <div class="underline_inputs" id="underlineChart" onmouseleave="underlineLeft()">
+                            <input type="radio" name="underline" class="underline_style_dot"
+                                value="underline"><br />underline
+                            <hr style="margin: 0;">
+                            <input type="radio" name="underline" class="underline_style_dot" value="none"><br />none
+                        </div>
+                    </div>
+
+                    <!-- font size  -->
+                    <div class="font_size">
+                        <abbr title="Font Size">
+                            <button onmouseover="FSOver()">
+                                <img src="icons/icons8-font-size-50.png" alt="" width="25px">
+                            </button>
+                        </abbr>
+                        <div class="input_font_size" onmouseleave="FSLeft()" id="FSChart">
+                            <input class="style_fs_input" type="text" maxlength="2" id="FSValue">
+                            <br> font size
+                        </div>
+                    </div>
+
+                    <!-- padding top-->
+                    <div class="font_size">
+                        <abbr title="Font Size">
+                            <button class="width" onmouseover="PTopOver()">
+                                PT
+                            </button>
+                        </abbr>
+                        <div class="input-widht" onmouseleave="PTopLeft()" id="PTopChart">
+                            <input class="style_fs_input" type="text" maxlength="1" id="PTopValue">
+                            <br> padding-top px
+                        </div>
+                    </div>
+
+
+                    <!-- padding bottom-->
+                    <div class="font_size">
+                        <abbr title="Font Size">
+                            <button class="width" onmouseover="PBottomOver()">
+                                PB
+                            </button>
+                        </abbr>
+                        <div class="input-widht" onmouseleave="PBottomLeft()" id="PBottomChart">
+                            <input class="style_fs_input" type="text" maxlength="1" id="PBottomValue">
+                            <br> padding-bottom px
+                        </div>
+                    </div>
+
+                    <!-- icon text shadow  -->
+                    <div class="text_shadow">
+                        <abbr title="Text shadow">
+                            <button onmouseover="TSOver()">
+                                <img src="icons/icons8-text-color-80.png" alt="" width="25px">
+                            </button>
+                        </abbr>
+                        <div class="input_text_shadows" id="TSCharts" onmouseleave="TSLeft()">
+                            <div class="tb">
+                                <label for="TB">Top<br />bottom<br />Shadow<br /> In <br>Number <br /> </label>
+                                <input class="style_shadow_input" type="text" id="TSTB" maxlength="1">
+                            </div>
+                            <div class="lf">
+                                <label for="TB"><br />Left<br />Right<br />Shadow<br /> In <br>Number<br /></label>
+                                <input class="style_shadow_input" type="text" id="TSLF" maxlength="1">
+                            </div>
+                            <div class="text_shadow_displayss">
+                                <div class="opct">
+                                    <label for="TB"><br />opacity <br /></label>
+                                    <input class="style_shadow_input" type="text" id="TSOpct" maxlength="1">
+                                </div>
+                                <div class="shadow">
+                                    <label for=""><br />Color </label>
+                                    <input type="color" id="TSColor">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr style="margin-bottom: 20px;">
+
+
+            <!-- text area background images     -->
+            <div class="images-textarea">
+                <p style="margin: 2px;">BG Image</p>
+                <input type="file" id="file">
+            </div>
+            <div class="alert">(Alert): If you use Background image and your image is getting cropped. You can set it
+                according to your screen by using padding top and padding-bottom.</div>
+            <!-- text area -->
+            <div class="text_box" id="textArea">
+                <p id="textArea"></p>
+            </div>
+            <div class="copy_right">Copy right 2023 by MUHAMMAD ANAS AHMED ©</div>
+        </div>
+    </div>
+
+    <script src="javascript/app.js"></script>
+</body>
+
+</html>
